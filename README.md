@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Luminary Studio — Premium Creative Design Agency
 
-## Getting Started
+Luminary Studio is a premium, production-ready, motion-driven SaaS creative agency website. Designed with rich modern aesthetics, hardware-accelerated animations, and absolute responsiveness.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- **🌓 Dynamic Light & Dark Theme**: Full theme-switching system (defaults to dark theme) with smooth transitions, customized gradients, and high contrast variables.
+- **🎬 Advanced Animations (Framer Motion)**:
+  - Aurora animated background blobs in the Hero section.
+  - Interactive 3D tilt and spotlight-tracking cards in the Portfolio and Services sections.
+  - Word-by-word staggered reveal animations on Hero headlines.
+  - Fluid indicator slide animations on navigation links.
+- **📐 Grid Layouts**: 8 custom-curated service offerings and 8 showcase projects arranged in responsive 2x4 configurations.
+- **📱 Fully Responsive**: Pixel-perfect layout optimization across Mobile, Tablet, and Desktop displays.
+- **✉️ Interactive Contact Form**: Complete client-side validation, error handling, loading states, and dynamic confirmation overlays.
+- **🖼️ Optimized Assets**: Native `next/image` layout integrations for zero-layout-shift and responsive asset loading.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14+ (App Router)
+- **Styling**: Tailwind CSS v4 & CSS Variables
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Typography**: Inter (Google Fonts)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Install Dependencies
+
+```bash
+# Clone the repository
+git clone https://github.com/AishwariyaRaj/Agency-Website.git
+
+# Navigate into the project folder
+cd agency-website
+
+# Install packages
+npm install
+```
+
+### 2. Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3. Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+├── app/
+│   ├── globals.css      # Core tailwind setup & custom theme variables
+│   ├── layout.js        # Root HTML metadata and structural styling
+│   └── page.js          # Homepage container organizing sections
+├── components/
+│   ├── ui/
+│   │   ├── Button.js       # Reusable button with theme variants
+│   │   └── SectionTitle.js # Adaptive section title standard
+│   ├── About.js         # Stat counter metrics with live counter animation
+│   ├── Contact.js       # Validated form and email pathways
+│   ├── Footer.js        # Social linkages and sublinks structure
+│   ├── Hero.js          # Aurora backdrop, staggered badges, magnetic button actions
+│   ├── Navbar.js        # Sticky header with active underline layout indicators & theme switcher
+│   ├── Portfolio.js     # 3D Tilt grid & custom full-view modals
+│   └── Services.js      # Spotlight mouse-following responsive grid
+└── public/              # High-definition images and visual assets
+```
