@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
+@theme {
+  --color-theme-bg: var(--bg-color);
+  --color-theme-text-primary: var(--text-primary);
+  --color-theme-text-secondary: var(--text-secondary);
+  --color-theme-text-title: var(--text-title);
+  --color-theme-card-bg: var(--card-bg);
+  --color-theme-card-border: var(--card-border);
+  --color-theme-card-border-hover: var(--card-border-hover);
+  --shadow-theme-card: var(--card-shadow);
+  --shadow-theme-card-hover: var(--card-shadow-hover);
+  --color-theme-navbar-bg: var(--navbar-bg);
+  --color-theme-navbar-border: var(--navbar-border);
+  --color-theme-input-bg: var(--input-bg);
+  --color-theme-input-border: var(--input-border);
+  --color-theme-input-text: var(--input-text);
+  --color-theme-avatar-border: var(--client-avatar-border);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-color: #030712;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-title: #ffffff;
+  --card-bg: rgba(17, 24, 39, 0.6);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --card-border-hover: rgba(255, 255, 255, 0.15);
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  --card-shadow-hover: 0 20px 40px -15px rgba(99, 102, 241, 0.25);
+  --navbar-bg: rgba(3, 7, 18, 0.8);
+  --navbar-border: rgba(255, 255, 255, 0.05);
+  --input-bg: rgba(255, 255, 255, 0.03);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --input-text: #ffffff;
+  --client-avatar-border: #030712;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html.light {
+  --bg-color: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-title: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-border-hover: rgba(99, 102, 241, 0.35);
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 20px 30px -10px rgba(99, 102, 241, 0.18);
+  --navbar-bg: rgba(248, 250, 252, 0.85);
+  --navbar-border: rgba(0, 0, 0, 0.06);
+  --input-bg: rgba(0, 0, 0, 0.02);
+  --input-border: rgba(0, 0, 0, 0.1);
+  --input-text: #0f172a;
+  --client-avatar-border: #f8fafc;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  * { box-sizing: border-box; }
+}
+
+/* ─── Aurora blobs ─── */
+@keyframes aurora-1 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33%       { transform: translate(60px, -40px) scale(1.08); }
+  66%       { transform: translate(-30px, 30px) scale(0.95); }
+}
+@keyframes aurora-2 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33%       { transform: translate(-50px, 40px) scale(1.05); }
+  66%       { transform: translate(40px, -20px) scale(0.97); }
+}
+@keyframes aurora-3 {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50%       { transform: translate(30px, 30px) scale(1.1); }
+}
+
+.aurora-blob-1 { animation: aurora-1 12s ease-in-out infinite; }
+.aurora-blob-2 { animation: aurora-2 15s ease-in-out infinite; }
+.aurora-blob-3 { animation: aurora-3 10s ease-in-out infinite; }
+
+/* ─── Float ─── */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+.float { animation: float-y 4s ease-in-out infinite; }
+
+/* ─── Gradient text ─── */
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(to right, #818cf8, #c084fc, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html.light .dot-grid {
+  opacity: 0.07;
 }
